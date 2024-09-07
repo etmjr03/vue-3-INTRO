@@ -23,8 +23,6 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-
-
 ## Estrutura de pastas Vue 3
 
 ### public
@@ -65,6 +63,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 * v-else-if - quando a condição dele for verdadeira ele irá exibir
 
 * v-else - quando não for nenhuma das condições do if ou else if ele irá exibir
+
+### Diretiva bind
+
+* É utilizado para acessar itens do objeto dinamicamente, por exemplo para adicionar uma url de imagem que será retornado pela api v-bind:src="obj.url", mas você pode utilizar somente : no lugar o v-bind
 
 ## Variáveis
 

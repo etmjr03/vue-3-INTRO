@@ -1,10 +1,17 @@
 <template>
   <div class="menu">
     <div 
-    v-for="obj in todos"
-    v-bind:key="obj.id"
+      v-for="obj in todos"
+      :key="obj.id"
     >
-      {{ obj.title }}
+    <div v-if="obj.url">
+      <span>{{ obj.title }}</span>
+      <img 
+        v-if="obj.url"
+        :src="obj.url" 
+        :alt="obj.title"
+      >
+    </div>
     </div>
   </div>
 </template>
@@ -19,19 +26,22 @@
                 "userId": 1,
                 "id": 1,
                 "title": "delectus aut autem",
-                "completed": false
+                "completed": false,
+                "url": "https://via.placeholder.com/150/d32776",
             },
             {
                 "userId": 1,
                 "id": 2,
                 "title": "quis ut nam facilis et officia qui",
-                "completed": false
+                "completed": false,
+                "url": "https://via.placeholder.com/150/d32776",
             },
             {
                 "userId": 1,
                 "id": 3,
                 "title": "fugiat veniam minus",
-                "completed": false
+                "completed": false,
+                "url": "https://via.placeholder.com/150/d32776",
             },
             {
                 "userId": 1,
