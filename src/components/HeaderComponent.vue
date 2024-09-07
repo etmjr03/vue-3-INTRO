@@ -1,19 +1,11 @@
 <template>
-  <div class="menu">
-    <div 
-      v-for="obj in todos"
-      :key="obj.id"
-    >
-    <div v-if="obj.url">
-      <span>{{ obj.title }}</span>
-      <img 
-        v-if="obj.url"
-        :src="obj.url" 
-        :alt="obj.title"
-      >
-    </div>
-    </div>
-  </div>
+  <h1 :class="{'titulo': true, 'tituloMaior': isHome}">Título da página</h1>
+  <br>
+  <span v-if="exibitNome">Quem está logado: {{ nomeUsuario }} - perfil: </span>
+  <span v-if="nivelUsuario == 'Admin'">Admin</span>
+  <span v-else-if="nivelUsuario == 'Programador'">Programador</span>
+  <span v-else>Comum</span>
+  <br>
 </template>
 
 <script>
@@ -21,6 +13,11 @@
     name: 'App',
     data() {
       return {
+        isHome: true,
+        classeTitulo: 'titulo',
+        nomeUsuario: 'Usuario Admin',
+        exibitNome: true,
+        nivelUsuario: 'Admin',
         todos: [
             {
                 "userId": 1,
@@ -67,5 +64,12 @@
     background: #1a1919;
     position: fixed;
     top: 0;
+  }
+  .titulo{
+    color: #1a1919;
+    font-size: 24px;
+  }
+  .tituloMaior{
+    font-size: 30px;
   }
 </style>

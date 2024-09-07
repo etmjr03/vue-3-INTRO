@@ -1,26 +1,21 @@
 <template>
   <HeaderComponent v-show="exibirMenu" />
-  <img alt="Vue logo" src="./assets/logo.png">
-  <div v-if="exibitNome">Quem está logado: {{ nomeUsuario }}</div>
-  <div v-if="nivelUsuario == 'Admin'">Admin</div>
-  <div v-else-if="nivelUsuario == 'Programador'">Programador</div>
-  <div v-else>Comum</div>
+  <NewsletterComponent />
 </template>
 
 <script>
-import HeaderComponent from './components/HeaderComponent.vue'
+import HeaderComponent from './components/HeaderComponent.vue';
+import NewsletterComponent from './components/NewsletterComponent.vue';
 
 export default {
   name: 'App',
   components: {
-    HeaderComponent
+    HeaderComponent,
+    NewsletterComponent
   },
   data() {
     return {
       exibirMenu: true,
-      nomeUsuario: 'Usuario Admin',
-      exibitNome: true,
-      nivelUsuario: 'Admin'
     }
   }
 }

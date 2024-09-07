@@ -23,20 +23,21 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+
 ## Estrutura de pastas Vue 3
 
-### public
+## public
 É onde ficam os arquivos públicos e estáticos, como o index principal do projeto com a div de id app id="app" e o favicon
 * index.html - arquivo raiz do projeto
 
-### src
+## src
 É a pasta que se refere a fonte do projeto, onde ficam as lógicas, é nessa pasta que fica a main.js.
 * main.js - é o arquivo de entrada do Vue, é por ele que tudo começa
 
-#### assets
+## assets
 É a pasta que armazena os ativos como imagens, videos, css globais
 
-#### components
+## components
 É onde fica os componentes
 
 ## Como criar um componente
@@ -54,7 +55,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 * As diretivas são as instruções que o vue da para os elementos HTML e os componentes e elas começam com v-
 
-#### Diretivas condicionais
+## Diretivas condicionais
 
 * v-show - é para exibição, se for false o elemento vai existir, mas ele vai adicionar display none
 
@@ -64,9 +65,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 * v-else - quando não for nenhuma das condições do if ou else if ele irá exibir
 
-### Diretiva bind
+## Diretiva bind
 
 * É utilizado para acessar itens do objeto dinamicamente, por exemplo para adicionar uma url de imagem que será retornado pela api v-bind:src="obj.url", mas você pode utilizar somente : no lugar o v-bind
+
+## Diretiva v-model
+
+* É utilizado para alterar o valor da variável pelos 2 atuadores, como uma via de mão dupla
 
 ## Variáveis
 
