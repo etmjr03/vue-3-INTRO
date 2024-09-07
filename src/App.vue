@@ -1,6 +1,10 @@
 <template>
-  <HeaderComponent/>
+  <HeaderComponent v-show="exibirMenu" />
   <img alt="Vue logo" src="./assets/logo.png">
+  <div v-if="exibitNome">Quem está logado: {{ nomeUsuario }}</div>
+  <div v-if="nivelUsuario == 'Admin'">Admin</div>
+  <div v-else-if="nivelUsuario == 'Programador'">Programador</div>
+  <div v-else>Comum</div>
 </template>
 
 <script>
@@ -10,6 +14,14 @@ export default {
   name: 'App',
   components: {
     HeaderComponent
+  },
+  data() {
+    return {
+      exibirMenu: true,
+      nomeUsuario: 'Usuario Admin',
+      exibitNome: true,
+      nivelUsuario: 'Admin'
+    }
   }
 }
 </script>

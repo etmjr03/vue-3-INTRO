@@ -46,8 +46,26 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 1. Crie seu componente dentro da pasta components com a extensão .vue
 2. Seu componente precisa ter <template> <script> <style>
 
-* Como importar um component dentro do outro
+## Como importar um component dentro do outro
 
 1. No <template> chame o componente assim <NomeDoComponente/>
 2. No <scrip> importe ele assim import NomeDoComponente from './components/NomeDoComponente.vue'
 3. Ainda no <script> no export que representa o objeto de itens do componente exporte ele assim export default { components: { NomeDoComponente } }
+
+## Diretivas
+
+* As diretivas são as instruções que o vue da para os elementos HTML e os componentes e elas começam com v-
+
+#### Diretivas condicionais
+
+* v-show - é para exibição, se for false o elemento vai existir, mas ele vai adicionar display none
+
+* v-if - também é para exibição, se for false ele vai remover o elemento da DOM
+
+* v-else-if - quando a condição dele for verdadeira ele irá exibir
+
+* v-else - quando não for nenhuma das condições do if ou else if ele irá exibir
+
+## Variáveis
+
+* Para criar uma variável você vai adicionar o objeto de conteúdo do componente a função data(){ return { variavel: 'valor da variavel' } }
