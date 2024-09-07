@@ -42,14 +42,14 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Como criar um componente
 
-1. Crie seu componente dentro da pasta components com a extensão .vue
-2. Seu componente precisa ter <template> <script> <style>
+* Crie seu componente dentro da pasta components com a extensão .vue
+* Seu componente precisa ter <template> <script> <style>
 
 ## Como importar um component dentro do outro
 
-1. No <template> chame o componente assim <NomeDoComponente/>
-2. No <scrip> importe ele assim import NomeDoComponente from './components/NomeDoComponente.vue'
-3. Ainda no <script> no export que representa o objeto de itens do componente exporte ele assim export default { components: { NomeDoComponente } }
+* No <template> chame o componente assim <NomeDoComponente/>
+* No <scrip> importe ele assim import NomeDoComponente from './components/NomeDoComponente.vue'
+* Ainda no <script> no export que representa o objeto de itens do componente exporte ele assim export default { components: { NomeDoComponente } }
 
 ## Diretivas
 
@@ -72,6 +72,14 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Diretiva v-model
 
 * É utilizado para alterar o valor da variável pelos 2 atuadores, como uma via de mão dupla
+
+## Diretiva de evento v-on
+
+* É utilizado para chamar funções em um elemento HTML, vc pode substituir a diretiva v-on:click="nomeDaFuncao()" por @click="nomeDaFuncao()"
+* Para identificar um evento você pode utilizar no parâmetro da função a variável $evt funcao($evt)
+* Você pode modificar o comportamento do envento, como o de submit por exemplo, segue o <a href="https://vuejs.org/guide/essentials/event-handling.html" target="_blank">Link</a>
+* Para adicionar eventos de mouse use @mouseover="passouMouse"
+* Para utilizar eventos de click use @keyup.enter="apertouEnter", segue o <a href="https://vuejs.org/guide/essentials/event-handling.html#key-modifiers" target="_blank">Link</a>
 
 ## Variáveis
 
