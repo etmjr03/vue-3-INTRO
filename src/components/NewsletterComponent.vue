@@ -14,13 +14,13 @@
     <hr>
 
     <h4>Selecionar opções</h4>
-    <p>Jogos</p>
+    <p>Produtos</p>
     <select v-model="produto">
       <option value="">selecione</option>
       <option value="tênis">Tênis</option>
       <option value="short">Short</option>
     </select>
-    <p>Jogo selecionado: {{ produto }}</p>
+    <p>Produto selecionado: {{ produto }}</p>
     <hr>
 
     <h4>Selecionar uma opção</h4>
@@ -108,6 +108,22 @@
       >{{ todo.title }}
     </div>
     <hr>
+
+    <h2 class="texto-titulo">Watch - escutadores</h2>
+
+    <h4>Enviando ajax quando seleciona uma página</h4>
+    <select v-model="pagina">
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+    </select>
+    <p>{{ pagina }}</p>
+    <hr>
+
+    <h4>Alterando valores de um Objeto</h4>
+    <input v-model="usuario.primeiroNome" type="text" placeholder="Nome">
+    <input v-model="usuario.sobrenome" type="text" placeholder="Sobrenome">
+    <p>{{ nomeCompleto }}</p>
   </div>
 </template>
 
@@ -158,36 +174,59 @@
             "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
             "completed": false
           }
-        ]
+        ],
+        pagina: 5,
       }
     },
     methods: {
       onClick(){
-        alert('Enviou :)')
+        alert('Enviou :)');
       },
       passouMouse($evt){
-        alert('Mouse passou aqui :)')
+        alert('Mouse passou aqui :)');
         console.log($evt);
       },
       enviouFormulario(){
-        alert('Enviou o formulário :)')
+        alert('Enviou o formulário :)');
       },
       apertouEnter(){
-        alert('Enviado :)')
+        alert('Enviado :)');
       },
       instanciaVue(){
         console.log(this.usuario);
+      },
+      enviarAjax(nomeNovo){
+        alert('AJAX enviado - novo nome: ' + nomeNovo);
+      },
+      enviarQuantidadePorPagina(pagina){
+        alert('AJAX enviado - quantidade por pagina: ' + pagina);
       }
     },
     computed: {
       nomeCompleto(){
-        return `${this.usuario.primeiroNome} ${this.usuario.sobrenome}`
+        return `${this.usuario.primeiroNome} ${this.usuario.sobrenome}`;
       },
       todosCompletadas(){
-        return this.todos.filter(todo => todo.completed)
+        return this.todos.filter(todo => todo.completed);
       },
       todosNaoCompletadas(){
-        return this.todos.filter(todo => !todo.completed)
+        return this.todos.filter(todo => !todo.completed);
+      }
+    },
+    watch: {
+      nome(nomeAntigo, nomeNovo){
+        if(nomeAntigo.length >= 10){
+          this.enviarAjax(nomeNovo);
+        }
+      },
+      pagina(pagina){
+        this.enviarQuantidadePorPagina(pagina);
+      },
+      usuario: {
+        handler(usuario){
+          console.log('Usuario alterado: ' + usuario.primeiroNome + ' ' + usuario.sobrenome);
+        },
+        deep: true
       }
     }
   }
