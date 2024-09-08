@@ -43,7 +43,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Como criar um componente
 
 * Crie seu componente dentro da pasta components com a extensão .vue
-* Seu componente precisa ter <template> <script> <style>
+* Seu componente precisa ter template script style
 
 ## Como importar um component dentro do outro
 
@@ -84,3 +84,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Variáveis
 
 * Para criar uma variável você vai adicionar o objeto de conteúdo do componente a função data(){ return { variavel: 'valor da variavel' } }
+
+## Computed
+
+* É possível computar valores dentro da instancia do vue e utiliza-los a medida do necessário, como por exemplo ao invés de chamar duas propriedades de nome e sobrenome para formar o nome completo, você pode criar uma função no computed, concatena-las e retornar computed: { nomeCompleto(){ return `${this.usuario.nome} $this.usuario.sobrenome` } }
+
+* Para pendurar o vue.js é necessário adicionar window.app = antes do create do vue createApp(App).mount('#app')

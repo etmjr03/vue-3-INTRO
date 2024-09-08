@@ -69,6 +69,44 @@
     <h4>Evento de tecla específica</h4>
     <p>Digite algo e aperte enter para confirmar</p>
     <input @keyup.enter="apertouEnter">
+    <button @click="instanciaVue">Clica aqui</button>
+    <hr>
+
+    <h2 class="texto-titulo">Utilizando computed</h2>
+    <br>
+
+    <h4>Concatenando nome completo</h4>
+    <p>Nome completo: {{ nomeCompleto }}</p>
+    <hr>
+
+    <h4>Todo list</h4>
+
+    <p class="text-todos">Completadas</p>
+    <div 
+      v-for="todo in todosCompletadas"
+      :key="todo.id"
+    >
+      {{ todo.title }} - concluídas: {{ todo.completed }}
+    </div>
+
+    <p class="text-todos">Não completadas</p>
+    <div 
+      v-for="todo in todosNaoCompletadas"
+      :key="todo.id"
+    >
+      {{ todo.title }} - concluída: {{ todo.completed }}
+    </div>
+
+    <p class="text-todos">Lista de Todos</p>
+    <div
+      v-for="todo in todos"
+      :key="todo.id"
+    >
+      <input 
+        v-model="todo.completed"
+        type="checkbox"
+      >{{ todo.title }}
+    </div>
     <hr>
   </div>
 </template>
@@ -78,10 +116,49 @@
     data(){
       return {
         nome: 'Juninho',
+        usuario: {
+          primeiroNome: 'Juninho',
+          sobrenome: 'dev'
+        },
         produto: '',
         newsletter: 'sim',
         contrato: false,
-        marcas: []
+        marcas: [],
+        todos: [
+          {
+            "userId": 1,
+            "id": 1,
+            "title": "delectus aut autem",
+            "completed": true,
+            "url": "https://via.placeholder.com/150/d32776",
+          },
+          {
+            "userId": 1,
+            "id": 2,
+            "title": "quis ut nam facilis et officia qui",
+            "completed": true,
+            "url": "https://via.placeholder.com/150/d32776",
+          },
+          {
+            "userId": 1,
+            "id": 3,
+            "title": "fugiat veniam minus",
+            "completed": false,
+            "url": "https://via.placeholder.com/150/d32776",
+          },
+          {
+            "userId": 1,
+            "id": 4,
+            "title": "et porro tempora",
+            "completed": true
+          },
+          {
+            "userId": 1,
+            "id": 5,
+            "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+            "completed": false
+          }
+        ]
       }
     },
     methods: {
@@ -97,6 +174,20 @@
       },
       apertouEnter(){
         alert('Enviado :)')
+      },
+      instanciaVue(){
+        console.log(this.usuario);
+      }
+    },
+    computed: {
+      nomeCompleto(){
+        return `${this.usuario.primeiroNome} ${this.usuario.sobrenome}`
+      },
+      todosCompletadas(){
+        return this.todos.filter(todo => todo.completed)
+      },
+      todosNaoCompletadas(){
+        return this.todos.filter(todo => !todo.completed)
       }
     }
   }
@@ -111,6 +202,10 @@
   }
   .texto-titulo{
     color: #13a360;
+  }
+  .text-todos{
+    font-weight: 700;
+    color: #f87e2c;
   }
   .mouse{
     display: flex;
