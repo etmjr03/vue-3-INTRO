@@ -1,17 +1,19 @@
 <template>
   <HeaderComponent v-show="exibirMenu" />
-  <NewsletterComponent />
+  <LifeCycleComponent />
 </template>
 
 <script>
 import HeaderComponent from './components/HeaderComponent.vue';
-import NewsletterComponent from './components/NewsletterComponent.vue';
+import LifeCycleComponent from './components/LifeCycleComponent.vue';
+//import NewsletterComponent from './components/NewsletterComponent.vue';
 
 export default {
   name: 'App',
   components: {
     HeaderComponent,
-    NewsletterComponent
+    //NewsletterComponent,
+    LifeCycleComponent
   },
   data() {
     return {
