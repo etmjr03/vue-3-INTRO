@@ -154,3 +154,59 @@ usuario: {
       deep: true
     }
 ```
+
+## Life Cicle
+
+* É utilizado para controlar o ciclo de vida de um componente, como a sua criação, montagem, alteração e desmontagem, veja exemplo:
+
+```js
+beforeUpdate() {
+    console.log('beforeUpdate');
+    console.log('estado: ',this.nome);
+    console.log('DOM: ',this.$el);
+    console.log('-----------------');
+  },
+  updated() {
+    console.log('updated');
+    console.log('estado: ',this.nome);
+    console.log('DOM: ',this.$el);
+    console.log('-----------------');
+  },
+  beforeCreate(){
+    console.log('beforeCreate');
+    console.log('estado: ',this.nome);
+    console.log('DOM: ',this.$el);
+    console.log('-----------------');
+  },
+  created(){
+    console.log('created');
+    console.log('estado: ',this.nome);
+    console.log('DOM: ',this.$el);
+    console.log('-----------------');
+  },
+  beforeMount(){
+    console.log('beforeMount');
+    console.log('estado: ',this.nome);
+    console.log('DOM: ',this.$el);
+    console.log('-----------------');
+  },
+  mounted(){
+    console.log('mounted');
+    console.log('estado: ',this.nome);
+    console.log('DOM: ',this.$el);
+    console.log('-----------------');
+  },
+  beforeUnmount(){
+    console.log('beforeUnmount');
+    console.log('estado: ',this.nome);
+    console.log('DOM: ',this.$el);
+    console.log('-----------------');
+    window.removeEventListener('resize', this.resize);
+  },
+  unmounted(){
+    console.log('unmounted');
+    console.log('estado: ',this.nome);
+    console.log('DOM: ',this.$el);
+    console.log('-----------------');
+  }
+```
