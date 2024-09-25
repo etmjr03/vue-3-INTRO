@@ -1,19 +1,21 @@
 <template>
-  <HeaderComponent v-show="exibirMenu" />
-  <LifeCycleComponent />
+  <SlotComponent />
 </template>
 
 <script>
-import HeaderComponent from './components/HeaderComponent.vue';
-import LifeCycleComponent from './components/LifeCycleComponent.vue';
+import SlotComponent from './components/SlotComponent.vue';
+
+//import HeaderComponent from './components/HeaderComponent.vue';
+//import LifeCycleComponent from './components/LifeCycleComponent.vue';
 //import NewsletterComponent from './components/NewsletterComponent.vue';
 
 export default {
   name: 'App',
   components: {
-    HeaderComponent,
+    SlotComponent
+    //HeaderComponent,
     //NewsletterComponent,
-    LifeCycleComponent
+    //LifeCycleComponent
   },
   data() {
     return {

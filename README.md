@@ -210,3 +210,29 @@ beforeUpdate() {
     console.log('-----------------');
   }
 ```
+
+## Técnica de Slot component
+
+* É utilizado para inserir informações que mudam para cada página, como por exemplo, títulos, veja um exemplo:
+
+```js
+// Template do componente que será importado
+<template>
+  <div class="slot">
+    <h1 class="title">
+      <slot name="titulo" />
+    </h1>
+    <p class="default" v-if="$slots.default">
+      <slot />
+    </p>
+  </div>
+</template>
+
+// Template do componente que está aplicando o Slot para o título
+<template>
+  <SlotExempleComponent>
+    <template v-slot:titulo>Título aplicado pelo slot</template>
+    Conteúdo default aplicado pelo slot
+  </SlotExempleComponent>
+</template>
+```
